@@ -7,24 +7,40 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Background Animation -->
+  <div class="stars"></div>
 
+  <!-- Menu Toggle -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="side-menu" id="menu">
+    <a href="education.html">🎓 Education</a>
+    <a href="personal.html">👤 Personal Info</a>
+    <a href="birthday.html">🎂 Birthday</a>
+  </div>
+
+  <!-- Dark Mode Toggle -->
+  <div class="toggle-container">
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+  </div>
+
+  <!-- Cover Photo -->
+  <div class="cover-photo">
+    <img src="images/profile.jpg" alt="Cover Photo" />
+  </div>
+
+  <!-- Content -->
   <div class="container">
     <h1>Welcome</h1>
     <h2>Shakil Raihan</h2>
-    <img src="profile.jpg" alt="Profile" width="300" />
-
-    
 
     <input type="text" id="username" placeholder="Enter your name" />
     <button onclick="submitName()">Submit</button>
-
     <p id="name-display"></p>
-
     <button onclick="showDetails()">Show More</button>
 
     <div id="details">
-      <p><strong>Name:</strong> <span id="dynamic-name">Your Name Here</span></p>
-      <p><strong>About Me:</strong> I'm a web enthusiast who enjoys creating simple and elegant websites.</p>
+      <p><strong>Name:</strong> <span id="dynamic-name"></span></p>
+      <p><strong>About Me:</strong> A computer engineer.</p>
     </div>
   </div>
 

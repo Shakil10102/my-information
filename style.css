@@ -1,8 +1,184 @@
-input[type="text"] {
+:root {
+  --bg-color: #f2f2f2;
+  --text-color: #333;
+  --card-color: white;
+  --btn-bg: #007bff;
+  --btn-hover: #0056b3;
+  --link-color: white;
+  --menu-bg: white;
+}
+
+body.dark {
+  --bg-color: #0b0f1a;
+  --text-color: #f5f5f5;
+  --card-color: #222;
+  --btn-bg: #444;
+  --btn-hover: #666;
+  --link-color: #f5f5f5;
+  --menu-bg: #111;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  text-align: center;
+  transition: background-color 0.6s, color 0.6s;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated Stars Background */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(#1c1c1c, #000);
+  background-image: repeating-radial-gradient(white 0px, transparent 1px),
+                    repeating-radial-gradient(white 0px, transparent 1px);
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 2px;
+  z-index: -1;
+  animation: twinkle 10s infinite alternate;
+  opacity: 0.15;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.3; }
+}
+
+.cover-photo {
+  width: 100%;
+  max-height: 220px;
+  overflow: hidden;
+}
+
+.cover-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container {
+  background-color: var(--card-color);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Inputs & Buttons */
+input, button {
+  margin: 10px;
   padding: 10px;
   font-size: 16px;
   border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-bottom: 15px;
-  width: 80%;
+  border: none;
+  outline: none;
+  background-color: var(--card-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+button {
+  background-color: var(--btn-bg);
+  color: var(--link-color);
+}
+
+button:hover {
+  background-color: var(--btn-hover);
+}
+
+.toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.toggle-btn {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+  background-color: var(--btn-bg);
+  color: var(--link-color);
+}
+
+.toggle-btn:active {
+  transform: rotate(360deg);
+}
+
+/* Top Left Menu */
+.menu-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: var(--btn-bg);
+  color: var(--link-color);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.side-menu {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 60px;
+  left: 20px;
+  background-color: var(--menu-bg);
+  padding: 12px;
+  border-radius: 10px;
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.side-menu a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.side-menu a:hover {
+  background-color: var(--btn-hover);
+  color: white;
+  border-radius: 6px;
+}
+
+/* Hidden content */
+#details {
+  display: none;
+  margin-top: 20px;
+  background-color: var(--card-color);
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+  .container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  input, button {
+    width: 90%;
+  }
+
+  .menu-toggle, .toggle-btn {
+    font-size: 18px;
+    padding: 6px 10px;
+  }
 }
